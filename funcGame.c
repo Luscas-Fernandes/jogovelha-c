@@ -15,28 +15,28 @@ int checkWin(char board[], int round, char *pMark)
 	for (int i = 0; i < 3; i++)
 	{
 		if (board[i * 3] == *pMark && board[i * 3 + 1] == *pMark && board[i * 3 + 2] == *pMark)
-        {
+		{
 			winCond = 1;
-            return winCond;
-        }
+			return winCond;
+		}
 		if (board[i] == *pMark && board[i + 3] == *pMark && board[i + 6] == *pMark)
 		{
 			winCond = 1;
-            return winCond;
-        }
+			return winCond;
+		}
 	}
 
 	// Diagonals, early return so it don't process any further than necessary
 	if (board[0] == *pMark && board[4] == *pMark && board[8] == *pMark)
-		{
-			winCond = 1;
-            return winCond;
-        }
+	{
+		winCond = 1;
+		return winCond;
+	}
 	else if (board[2] == *pMark && board[4] == *pMark && board[6] == *pMark)
-		{
-			winCond = 1;
-            return winCond;
-        }
+	{
+		winCond = 1;
+		return winCond;
+	}
 
 	// Draw, early return not needed
 	if (round == 8 && winCond != 1)
@@ -81,7 +81,7 @@ void markBoard(int round, char board[], char *pMark)
 	board[converterLC(lin, col)] = *pMark;
 }
 
-// Converts the lines and columns to a unidimensional array, as it was implemented (nao sei pq implementei assim??)
+// Converts the lines and columns to a unidimensional array, as the board was implemented 
 int converterLC(int lin, int col)
 {
 	int num;
