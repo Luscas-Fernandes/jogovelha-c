@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "directives.h"
 
 void drawBoard(char board[]);
 void markBoard(int round, char board[], char *pMark);
@@ -8,39 +9,28 @@ int checkWin(char board[], int round, char *pMark);
 
 int checkWin(char board[], int round, char *pMark)
 {
-	// Normal game condition
-	int winCond = 0;
+	int winCond;
 
 	// Check lines and columns. Early return so it don't process any further than necessary
 	for (int i = 0; i < 3; i++)
 	{
 		if (board[i * 3] == *pMark && board[i * 3 + 1] == *pMark && board[i * 3 + 2] == *pMark)
-		{
-			winCond = 1;
-			return winCond;
-		}
+			return WIN;
+
 		if (board[i] == *pMark && board[i + 3] == *pMark && board[i + 6] == *pMark)
-		{
-			winCond = 1;
-			return winCond;
-		}
+			return WIN;
 	}
 
 	// Diagonals, early return so it don't process any further than necessary
 	if (board[0] == *pMark && board[4] == *pMark && board[8] == *pMark)
-	{
-		winCond = 1;
-		return winCond;
-	}
+		return WIN;
+
 	else if (board[2] == *pMark && board[4] == *pMark && board[6] == *pMark)
-	{
-		winCond = 1;
-		return winCond;
-	}
+		return WIN;
 
 	// Draw, early return not needed
-	if (round == 8 && winCond != 1)
-		winCond = -1;
+	if (round == 8)
+		winCond = DRAW;
 	
 	return winCond;
 }
