@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "funcGame.h"
+#include "../headers/funcGame.h"
 
 char board[] = {'-', '-', '-', '-', '-', '-', '-', '-', '-'}, mark, *pMark = &mark;
 

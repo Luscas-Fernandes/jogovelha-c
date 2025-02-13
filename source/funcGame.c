@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "directives.h"
+#include "../headers/directives.h"
 
 void drawBoard(char board[]);
 void markBoard(int round, char board[], char *pMark);

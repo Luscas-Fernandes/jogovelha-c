@@ -1,4 +1,4 @@
-#include "renderGame.h"
+#include "../headers/renderGame.h"
 
 int main()
 {   
